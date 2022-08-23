@@ -27,6 +27,11 @@ export class HomeComponent implements OnInit {
     {
       img: '../../../assets/images/placeholder_image.png',
       name: 'Gerard Gray',
+      position: 'Intern Software Engineer'
+    },
+    {
+      img: '../../../assets/images/placeholder_image.png',
+      name: 'Nikita Savkos',
       position: 'Associate Software Engineer'
     },
   ];
