@@ -1,3 +1,50 @@
 <app-header></app-header>
 
-<p>discover works!</p>
+<div class="container">
+  <div class="header p-1">
+    <h1 class="display-3">Discover</h1>
+  </div>
+
+  <div class="user-info d-flex flex-column align-items-start">
+    <div class="user-personal-info d-flex flex-row mb-3">
+      <div class="form-group form-group-icon icon-right form-group-placeholder " >
+
+        <select class="custom-select" id="endorsementType" name="endorsementType">
+          <option disabled="" value="null">Search By: </option>
+          <option value="ExpiryDateChange"> All </option>
+          <option value="ExpiryDateChange"> Name </option>
+          <option value="PolicySettingsChange"> Skill </option>
+          <option value="ExampleProductEndorsement"> Certification </option>
+        </select>
+        <label for="endorsementType">Search By:</label>
+      </div>
+      <div class="form-group form-group-icon icon-right ">
+        <i class="fal fa-fw fa-search input-icon"></i>
+
+
+        <form class="example-form" >
+          <input type="text"
+
+                 id="search"
+                 placeholder="Search"
+                 [formControl]="control"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+              <i class="fal fa-fw fa-search input-icon"></i>
+              {{street}}
+
+            </mat-option>
+
+          </mat-autocomplete>
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

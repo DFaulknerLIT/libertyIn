@@ -7,6 +7,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { DiscoverResultsComponent } from './components/discover-results/discover-results.component';
 import { DiscoverComponent } from './components/discover/discover.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +20,17 @@ import { DiscoverComponent } from './components/discover/discover.component';
     HeaderComponent,
     HomeComponent,
     DiscoverResultsComponent,
-    DiscoverComponent
+    DiscoverComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
