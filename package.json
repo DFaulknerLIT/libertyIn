@@ -22,7 +22,10 @@
     "@angular/router": "^14.1.0",
     "@lmig/catalyst-ui-library": "2.0.3",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "bootstrap": "^4.6.0",
+=======
+>>>>>>> 3164419 (Added Angular Materials, finished proof of concept for discover page)
 =======
 >>>>>>> 3164419 (Added Angular Materials, finished proof of concept for discover page)
     "rxjs": "~7.5.0",

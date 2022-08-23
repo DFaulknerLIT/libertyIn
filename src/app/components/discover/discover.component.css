@@ -17,19 +17,12 @@
 body {
   margin: 0;
 }
-.h1{
-  text-align: center
 
-}
-
-#container{
-  text-align: center
-}
 
 #search {
   border-top-right-radius: 70em;
   border-bottom-right-radius: 70em;
-  width: 70vmin;
+  width: 30vw;
   align-content: center;
   align-items: center;
 }
@@ -37,6 +30,6 @@ body {
 #endorsementType {
   border-top-left-radius: 70em;
   border-bottom-left-radius: 70em;
-  width: 10vmin;
+  width: 10vw;
   align-content: center;
 }
