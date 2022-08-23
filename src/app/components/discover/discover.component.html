@@ -30,10 +30,9 @@
                  [formControl]="control"
                  [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-              <i class="fal fa-fw fa-search input-icon"></i>
-              {{street}}
-
+            <mat-option *ngFor="let street of filteredStreets | async" [value]="street" >
+              <i class="fal fa-fw fa-search input-icon"></i> -
+                  <b>{{street}}</b> - Skills: <small>Typescript, Angular, Java, javascript </small>- Qualifications: <small>AWS Certification</small>
             </mat-option>
 
           </mat-autocomplete>
