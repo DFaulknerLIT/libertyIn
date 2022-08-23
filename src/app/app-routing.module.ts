@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path:'discover/results',
     component: DiscoverResultsComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 
