@@ -14,7 +14,7 @@ export class DiscoverComponent implements OnInit {
   constructor() { }
 
   control = new FormControl('');
-  streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
+  streets: string[] = ['Joe Bell', 'David Faulkner', 'Stephen Oyinilola', 'Gerard Gray'];
   filteredStreets: Observable<string[]> | undefined;
 
   ngOnInit(): void {
