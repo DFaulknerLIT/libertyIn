@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { DiscoverResultsComponent } from './components/discover-results/discover-results.component';
 import { DiscoverComponent } from './components/discover/discover.component';
+import { AuthRoutingModule } from "./auth/auth-routing.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DiscoverComponent } from './components/discover/discover.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
