@@ -1,4 +1,8 @@
-.container {
-  background-color: #EFEFEF;
-  height: 100%;
+.fields {
+  justify-content: center;
+}
+
+.form-control {
+  border-radius: 70em;
+  width: 30vw;
 }
