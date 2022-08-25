@@ -9,6 +9,8 @@ import { DiscoverResultsComponent } from './components/discover-results/discover
 import { DiscoverComponent } from './components/discover/discover.component';
 import { AuthRoutingModule } from "./auth/auth-routing.module";
 import {AuthModule} from "./auth/auth.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import {AuthModule} from "./auth/auth.module";
     AuthRoutingModule,
     AuthModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
