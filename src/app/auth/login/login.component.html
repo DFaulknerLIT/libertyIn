@@ -10,16 +10,16 @@
 </div>
 
 <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class=“catalyst-form”>
-  <div class="row justify-content-center">
+  <div class="row">
     <div class="col-12">
       <fieldset class="card p-lg-4 p-md-3 p-2" id="loginFormSection">
         <div class="row">
-          <legend class="col-form-label col-12 pb-3">Log In</legend>
+          <legend class="col-form-label pb-4">Log In</legend>
         </div>
 
         <div class="fields">
-          <div class="row pb-2">
-            <div class="col-12 col-md-9">
+          <div class="row pb-2 d-flex justify-content-center">
+            <div class="col-lg-12 col-md-12">
               <div class="form-group">
                 <label>Username
                   <input class="form-control" id="usernameField" name="field-username"
@@ -29,8 +29,8 @@
             </div>
           </div>
 
-          <div class="row pb-2">
-            <div class="col-12 col-md-9">
+          <div class="row pb-2 d-flex justify-content-center">
+            <div class="col-lg-12 col-md-12">
               <div class="form-group">
                 <label for="passwordField">Password
                   <input class="form-control" id="passwordField" name="field-password"
@@ -41,7 +41,7 @@
           </div>
 
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-lg-12">
               <fieldset>
                 <input class="btn btn-primary btn-half-center" data-testid="submit-button" type="submit" [disabled]="!loginForm.valid" value="Log In"/>
               </fieldset>
