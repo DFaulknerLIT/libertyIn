@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     //  TODO: Replace this test logic with actual auth logic to backend
     //  TODO: Abstract into dedicated auth service?
-    let usernameValue: string = <string>this.loginForm.value.username;
-    let passwordValue: string = <string>this.loginForm.value.password;
-    console.log(usernameValue);
-    console.log(passwordValue);
+    let usernameValue: string = this.loginForm.get('username')?.value;
+    let passwordValue: string = this.loginForm.get('password')?.value;
 
     if(usernameValue === 'user') {
       this.router.navigateByUrl("/");
