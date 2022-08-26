@@ -18,11 +18,13 @@ export class DiscoverComponent implements OnInit {
   constructor() { }
 
   control = new FormControl('');
-  streets: string[] = ['Joe Bell', 'David Faulkner', 'Stephen Oyinilola', 'Gerard Gray'];
-  filteredStreets: Observable<string[]> | undefined;
+  name: string[] = ['Joe Bell', 'David Faulkner', 'Stephen Oyinlola', 'Gerard Gray'];
+  skills: string[] = ['Java', 'Typescript', 'Python', 'Angular'];
+  filteredNames: Observable<string[]> | undefined;
 
   ngOnInit(): void {
-    this.filteredStreets = this.control.valueChanges.pipe(
+    // @ts-ignore
+    this.filteredNames = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
@@ -30,7 +32,7 @@ export class DiscoverComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = this._normalizeValue(value);
-    return this.streets.filter(street => this._normalizeValue(street).includes(filterValue));
+    return this.name.filter(street => this._normalizeValue(street).includes(filterValue));
   }
 
   private _normalizeValue(value: string): string {
