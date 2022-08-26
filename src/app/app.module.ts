@@ -30,7 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AuthRoutingModule,
-    AuthModule
+    AuthModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     FormsModule,
