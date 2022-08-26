@@ -1,0 +1,9 @@
+.form-group {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.form-control {
+  border-radius: 70em;
+  width: 30vw;
+}
