@@ -11,6 +11,12 @@ import { AuthRoutingModule } from "./auth/auth-routing.module";
 import {AuthModule} from "./auth/auth.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +24,19 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     HeaderComponent,
     HomeComponent,
     DiscoverResultsComponent,
-    DiscoverComponent
+    DiscoverComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthRoutingModule,
     AuthModule
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [
     {

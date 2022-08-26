@@ -1,0 +1,42 @@
+.container {
+  background-color: #EFEFEF;
+  height: 100%;
+  margin-top: 0%;
+}
+
+.user-profile-pic {
+  border-radius: 50%;
+  width: 100px
+}
+
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  margin: 0;
+}
+.h1{
+  text-align: center
+
+}
+
+#container{
+  text-align: center
+}
+
+#search {
+  border-top-right-radius: 70em;
+  border-bottom-right-radius: 70em;
+  width: 70vmin;
+  align-content: center;
+  align-items: center;
+}
+
+#endorsementType {
+  border-top-left-radius: 70em;
+  border-bottom-left-radius: 70em;
+  width: 10vmin;
+  align-content: center;
+}
