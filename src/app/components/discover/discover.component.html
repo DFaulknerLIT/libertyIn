@@ -1,1 +1,59 @@
-<p>discover works!</p>
+
+<app-header></app-header>
+<br>
+<div class="container">
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+  <div class="header p-1 align-items-center">
+    <h1 class="display-3" align="center" style="font-size: 64px">Discover</h1>
+  </div>
+
+  <div class="user-info d-flex flex-column align-items-center">
+  <div class="user-info d-flex flex-column align-items-center">
+    <div class="user-personal-info d-flex flex-row mb-3 align-items-center">
+      <div class="form-group form-group-icon icon-right form-group-placeholder align-items-center" >
+
+        <select class="custom-select" id="endorsementType" name="endorsementType">
+          <option disabled="" value="null">Search By: </option>
+          <option value="ExpiryDateChange"> All </option>
+          <option value="ExpiryDateChange"> Name </option>
+          <option value="PolicySettingsChange"> Skill </option>
+          <option value="ExampleProductEndorsement"> Certification </option>
+        </select>
+        <label for="endorsementType">Search By:</label>
+      </div>
+      <div class="form-group form-group-icon icon-right ">
+        <i class="fal fa-fw fa-search input-icon"></i>
+
+
+        <form class="example-form" >
+          <input type="text"
+
+                 id="search"
+                 placeholder="Search"
+                 [formControl]="control"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let name of filteredNames | async" [value]="name" >
+              <img width="4%" height="4%" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"> -
+                  <b>{{name}}</b> - Skills: <small>Typescript, Angular, Java, javascript </small>- Qualifications: <small>AWS Certification</small>
+            </mat-option>
+
+          </mat-autocomplete>
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
