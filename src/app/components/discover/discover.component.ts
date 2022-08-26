@@ -37,7 +37,7 @@ export class DiscoverComponent implements OnInit {
     // @ts-ignore
     this.filteredNames = this.control.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value || '')),
+      map(value => this._filter(value || '#&^%')),
     );
   }
 
