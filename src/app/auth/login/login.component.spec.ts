@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -9,6 +10,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ],
       imports: [
         FormsModule,
         ReactiveFormsModule
@@ -26,9 +31,9 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should require email', () => {
+  it('should require username', () => {
     component.loginForm.setValue({
-      'email': "",
+      'username': "",
       "password": "testPassword123"
     });
     expect(component.loginForm.valid).toEqual(false);
@@ -36,7 +41,7 @@ describe('LoginComponent', () => {
 
   it('should require password', () => {
     component.loginForm.setValue({
-      'email': "TestUsername123",
+      'username': "TestUsername123",
       "password": ""
     });
     expect(component.loginForm.valid).toEqual(false);
@@ -44,7 +49,7 @@ describe('LoginComponent', () => {
 
   it('should require both username and password', () => {
     component.loginForm.setValue({
-      'email': "TestUsername123",
+      'username': "TestUsername123",
       "password": "testpassword123"
     });
     expect(component.loginForm.valid).toEqual(true);
