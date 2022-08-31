@@ -74,6 +74,55 @@ describe('RegisterComponent', () => {
   it('should be able to enter 7 characters for id', () => {
     const ctrl = component.registerForm.get('id');
     ctrl?.setValue('n123456');
+    expect(ctrl?.valid).toBeFalsy();
+  });
+
+  it('should be able to enter 8 characters for password', () => {
+    const ctrl = component.registerForm.get('password');
+    ctrl?.setValue('password');
     expect(ctrl?.valid).toBeTruthy();
+  });
+
+  it('should be able to enter 16 characters for password', () => {
+    const ctrl = component.registerForm.get('password');
+    ctrl?.setValue('password12345678');
+    expect(ctrl?.valid).toBeTruthy();
+  });
+
+  it('should be able to enter between 8 and 16 characters for password', () => {
+    const ctrl = component.registerForm.get('password');
+    ctrl?.setValue('password45678');
+    expect(ctrl?.valid).toBeTruthy();
+  });
+
+  it('should not be able to enter less than 8 characters for password', () => {
+    const ctrl = component.registerForm.get('password');
+    ctrl?.setValue('gerh89');
+    expect(ctrl?.valid).toBeFalsy();
+  });
+
+  it('should not be able to enter more than 16 characters for password', () => {
+    const ctrl = component.registerForm.get('password');
+    ctrl?.setValue('gerh8gsgse4tgwbewhygwebd9');
+    expect(ctrl?.valid).toBeFalsy();
+  });
+
+  // TODO: Fix these two tests at some stage
+  it('should be able to enter matching passwords', () => {
+    const ctrl1 = component.registerForm.get('password');
+    ctrl1?.setValue('matchThisPass');
+    expect(ctrl1?.valid).toBeTruthy();
+    const ctrl2 = component.registerForm.get('passwordConfirm');
+    ctrl2?.setValue('matchThisPass');
+    expect(ctrl2?.valid).toBeTruthy();
+  });
+
+  it('should not be able to enter mismatched passwords', () => {
+    const ctrl1 = component.registerForm.get('password');
+    ctrl1?.setValue('matchThisPass');
+    expect(ctrl1?.valid).toBeTruthy();
+    const ctrl2 = component.registerForm.get('passwordConfirm');
+    ctrl2?.setValue('fqfqfqfqefc');
+    expect(ctrl2?.valid).toBeTruthy();
   });
 });
