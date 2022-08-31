@@ -35,25 +35,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Getter for password fields, required for validation
-  get password(): AbstractControl | null {
+  // Getters for ID and password fields, required for validation
+  get id() {
+    return this.registerForm.get('id');
+  }
+
+  get password() {
     return this.registerForm.get('password');
   }
 
   onRegister(): void {
-    let registration: Register = {
-      'email': <string>this.registerForm.get('email')?.value,
-      'firstName': <string>this.registerForm.get('firstName')?.value,
-      'lastName': <string>this.registerForm.get('lastName')?.value,
-      'password': <string>this.registerForm.get('password')?.value,
-    };
 
-    this.authService.registerUser(registration).subscribe((res) => {
-        this.router.navigateByUrl("/");
-    },
-      (error: HttpErrorResponse) => {
-        this.hasError = true;
-        this.errorMessage = error.status + " Error - " + error.statusText;
-    });
   }
 }
