@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Form, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 function checkMatchedPasswordsValidation(fg: FormGroup): ValidationErrors | null {
@@ -32,18 +32,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Getter for ID field
+  // Getters for ID and password fields, required for validation
   get id() {
     return this.registerForm.get('id');
   }
 
-  // Getter for password field
   get password() {
     return this.registerForm.get('password');
   }
 
   onRegister(): void {
-    console.log(this.registerForm.get('password')?.value);
+
   }
 
 }
