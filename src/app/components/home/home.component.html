@@ -6,7 +6,7 @@
   </div>
 
   <div class="user-info d-flex flex-column align-items-start">
-    <div class="user-personal-info d-flex flex-row mb-3">
+    <div class="user-personal-info d-flex flex-row mb-3 pb-4">
       <img id="empImg" src="../../../assets/images/placeholder_image.png" class="user-profile-pic mr-3" alt="Profile Picture">
       <div class="flex-column">
         <h1 class="display-4" id="empName">John Doe</h1>
@@ -16,14 +16,41 @@
         </div>
       </div>
     </div>
-    <div class="user-skills d-flex flex-row">
+    <div class="user-skills flex-row pb-4">
       <h1 class="display-4">Skills and Certifications</h1>
+      <h4>Personal Skills</h4>
+      <div class="skill-cards">
+        <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of skills">
+          <ng-container *ngIf="isSkill(skill)">
+            <div class="card mb-1">
+              <div class="card-body">
+                <h5 class="card-title" id="empSkillName">{{skill.name}}</h5>
+                <p class="card-text" id="empSkillDetail">{{skill.details}}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <h4>Certifications</h4>
+      <div class="skill-cards">
+        <div id="empCertifications" class="col-md-4" *ngFor="let cert of skills">
+          <!-- TODO - Fix spacing on these cards -->
+          <ng-container *ngIf="!isSkill(cert)">
+            <div class="card mb-1">
+              <div class="card-body">
+                <h5 class="card-title" id="empCertName">{{cert.name}}</h5>
+                <p class="card-text" id="empCertDetail">{{cert.details}}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
     </div>
     <div class="user-team">
       <h1 class="display-4">Team</h1>
       <div class="team-cards">
         <div *ngFor="let employee of teamMembers">
-          <div class="card mb-1">
+          <div class="card mb-1 team-card">
             <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
             <div class="card-body">
               <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
