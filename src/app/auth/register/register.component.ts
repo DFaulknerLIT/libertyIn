@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 function checkMatchedPasswordsValidation(fg: FormGroup): ValidationErrors | null {
@@ -33,11 +33,11 @@ export class RegisterComponent implements OnInit {
   }
 
   // Getters for ID and password fields, required for validation
-  get id() {
+  get id(): AbstractControl | null {
     return this.registerForm.get('id');
   }
 
-  get password() {
+  get password(): AbstractControl | null {
     return this.registerForm.get('password');
   }
 
