@@ -21,9 +21,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.registerForm = formBuilder.group({
-      id: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
       email: ['', Validators.required],
-      displayName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(16)])],
       passwordConfirm: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(16)])]
     }, {validator: checkMatchedPasswordsValidation});
@@ -32,17 +32,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Getters for ID and password fields, required for validation
-  get id(): AbstractControl | null {
-    return this.registerForm.get('id');
-  }
-
+  // Getter for password fields, required for validation
   get password(): AbstractControl | null {
     return this.registerForm.get('password');
   }
 
   onRegister(): void {
-
+    //TODO: Registration logic + auth service
   }
 
 }
