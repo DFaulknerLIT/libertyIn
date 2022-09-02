@@ -31,33 +31,36 @@ describe('RegisterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should require id', () => {
-    component.registerForm.setValue({
-      'id': "",
-      "email": "email123@liberty-it.co.uk",
-      "displayName": "Test Display Name",
-      "password": "password123",
-      "passwordConfirm": "password123"
-    });
-    expect(component.registerForm.valid).toEqual(false);
-  });
-
   it('should require email', () => {
     component.registerForm.setValue({
       'id': "n123456",
       "email": "",
-      "displayName": "Test Display Name",
+      "firstName": "FirstName",
+      "lastName": "McSurname",
       "password": "password123",
       "passwordConfirm": "password123"
     });
     expect(component.registerForm.valid).toEqual(false);
   });
 
-  it('should require displayName', () => {
+  it('should require firstName', () => {
     component.registerForm.setValue({
       'id': "n123456",
       "email": "email123@liberty-it.co.uk",
-      "displayName": "",
+      "firstName": "",
+      "lastName": "McSurname",
+      "password": "password123",
+      "passwordConfirm": "password123"
+    });
+    expect(component.registerForm.valid).toEqual(false);
+  });
+
+  it('should require lastName', () => {
+    component.registerForm.setValue({
+      'id': "n123456",
+      "email": "email123@liberty-it.co.uk",
+      "firstName": "FirstName",
+      "lastName": "",
       "password": "password123",
       "passwordConfirm": "password123"
     });

@@ -35,16 +35,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Getters for ID and password fields, required for validation
-  get id(): AbstractControl | null {
-    return this.registerForm.get('id');
-  }
-
+  // Getter for password fields, required for validation
   get password(): AbstractControl | null {
     return this.registerForm.get('password');
   }
 
   onRegister(): void {
-
+    //TODO: Registration logic + auth service
   }
 }
