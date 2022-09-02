@@ -5,12 +5,12 @@
 
   <div class="user-info d-flex flex-column align-items-start">
     <div class="user-personal-info d-flex flex-row mb-3">
-      <img src="../../../assets/images/placeholder_image.png" class="user-profile-pic mr-3" alt="Profile Picture">
+      <img id="empImg" src="../../../assets/images/placeholder_image.png" class="user-profile-pic mr-3" alt="Profile Picture">
       <div class="flex-column">
-        <h1 class="display-4">John Doe</h1>
+        <h1 class="display-4" id="empName">John Doe</h1>
         <div class="d-flex align-items-start">
-          <p class="pr-3"><b>Associate Software Engineer</b></p>
-          <p><b>Training Academy 2022</b></p>
+          <p class="pr-3" id="empJobTitle"><b>Associate Software Engineer</b></p>
+          <p id="empTeam"><b>Training Academy 2022</b></p>
         </div>
       </div>
     </div>
@@ -22,10 +22,10 @@
       <div class="team-cards">
         <div *ngFor="let employee of teamMembers">
           <div class="card mb-1">
-            <img class="card-img-top" src="{{employee.img}}" alt="Employee Profile Image">
+            <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
             <div class="card-body">
-              <h5 class="card-title">{{employee.name}}</h5>
-              <p class="card-text">{{employee.position}}</p>
+              <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
+              <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
             </div>
           </div>
         </div>
