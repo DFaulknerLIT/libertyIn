@@ -38,40 +38,31 @@ export class HomeComponent implements OnInit {
 
   skills = [
     {
-      type: 'skill',
       name: 'Java',
       details: 'Proficient with Java language and Spring framework'
     },
     {
-      type: 'skill',
       name: 'Python',
       details: 'Expert in Django development and anaconda applications'
-    },
+    }];
+
+  certs = [
     {
-      type: 'cert',
       name: 'AWS Certified Security Specialist',
       details: 'Obtained 16th September 2020'
     },
     {
-      type: 'cert',
       name: 'AWS Certified Database Specialist',
       details: 'Obtained 32th September 1805'
     },
     {
-      type: 'cert',
       name: 'AWS Certified Cloud Practitioner (Foundational)',
       details: 'Obtained 16th September 2020'
-    },
-  ];
+    }];
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  public isSkill(skill: any): boolean {
-    // TODO: Revise this when we get real data
-    return skill.type === 'skill';
   }
 
 }
