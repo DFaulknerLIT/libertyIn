@@ -19,28 +19,23 @@
       <h4>Personal Skills</h4>
       <div class="skill-cards">
         <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of skills">
-          <ng-container *ngIf="isSkill(skill)">
             <div class="card mb-1">
               <div class="card-body">
                 <h5 class="card-title" id="empSkillName">{{skill.name}}</h5>
                 <p class="card-text" id="empSkillDetail">{{skill.details}}</p>
               </div>
             </div>
-          </ng-container>
         </div>
       </div>
       <h4>Certifications</h4>
       <div class="skill-cards">
-        <div id="empCertifications" class="col-md-4" *ngFor="let cert of skills">
-          <!-- TODO - Fix spacing on these cards -->
-          <ng-container *ngIf="!isSkill(cert)">
+        <div id="empCertifications" class="col-md-4" *ngFor="let cert of certs">
             <div class="card mb-1">
               <div class="card-body">
                 <h5 class="card-title" id="empCertName">{{cert.name}}</h5>
                 <p class="card-text" id="empCertDetail">{{cert.details}}</p>
               </div>
             </div>
-          </ng-container>
         </div>
       </div>
     </div>
