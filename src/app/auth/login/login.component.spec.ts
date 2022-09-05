@@ -31,9 +31,9 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should require username', () => {
+  it('should require email', () => {
     component.loginForm.setValue({
-      'username': "",
+      'email': "",
       "password": "testPassword123"
     });
     expect(component.loginForm.valid).toEqual(false);
@@ -41,7 +41,7 @@ describe('LoginComponent', () => {
 
   it('should require password', () => {
     component.loginForm.setValue({
-      'username': "TestUsername123",
+      'email': "TestUsername123",
       "password": ""
     });
     expect(component.loginForm.valid).toEqual(false);
@@ -49,7 +49,7 @@ describe('LoginComponent', () => {
 
   it('should require both username and password', () => {
     component.loginForm.setValue({
-      'username': "TestUsername123",
+      'email': "TestUsername123",
       "password": "testpassword123"
     });
     expect(component.loginForm.valid).toEqual(true);
