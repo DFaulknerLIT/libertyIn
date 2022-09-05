@@ -26,56 +26,56 @@ describe('RegisterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should require id', () => {
-    component.registerForm.setValue({
-      'id': "",
-      "email": "email123@liberty-it.co.uk",
-      "displayName": "Test Display Name",
-      "password": "password123",
-      "passwordConfirm": "password123"
-    });
-    expect(component.registerForm.valid).toEqual(false);
-  });
-
   it('should require email', () => {
     component.registerForm.setValue({
-      'id': "n123456",
       "email": "",
-      "displayName": "Test Display Name",
+      "firstName": "FirstName",
+      "lastName": "McSurname",
       "password": "password123",
       "passwordConfirm": "password123"
     });
     expect(component.registerForm.valid).toEqual(false);
   });
 
-  it('should require displayName', () => {
+  it('should require firstName', () => {
     component.registerForm.setValue({
-      'id': "n123456",
       "email": "email123@liberty-it.co.uk",
-      "displayName": "",
+      "firstName": "",
+      "lastName": "McSurname",
       "password": "password123",
       "passwordConfirm": "password123"
     });
     expect(component.registerForm.valid).toEqual(false);
   });
 
-  it('should not be able to enter less than 7 characters for id', () => {
-    const ctrl = component.registerForm.get('id');
-    ctrl?.setValue('n1234');
-    expect(ctrl?.invalid).toBeTruthy();
+  it('should require lastName', () => {
+    component.registerForm.setValue({
+      "email": "email123@liberty-it.co.uk",
+      "firstName": "FirstName",
+      "lastName": "",
+      "password": "password123",
+      "passwordConfirm": "password123"
+    });
+    expect(component.registerForm.valid).toEqual(false);
   });
 
-  it('should not be able to enter more than 7 characters for id', () => {
-    const ctrl = component.registerForm.get('id');
-    ctrl?.setValue('n123456789');
-    expect(ctrl?.invalid).toBeTruthy();
-  });
-
-  it('should be able to enter 7 characters for id', () => {
-    const ctrl = component.registerForm.get('id');
-    ctrl?.setValue('n123456');
-    expect(ctrl?.valid).toBeFalsy();
-  });
+  // it('should not be able to enter less than 7 characters for id', () => {
+  //   const ctrl = component.registerForm.get('id');
+  //   ctrl?.setValue('n1234');
+  //   expect(ctrl?.invalid).toBeTruthy();
+  // });
+  //
+  // // it('should not be able to enter more than 7 characters for id', () => {
+  // //   const ctrl = component.registerForm.get('id');
+  // //   ctrl?.setValue('n123456789');
+  // //   expect(ctrl?.invalid).toBeTruthy();
+  // // });
+  // //
+  // // it('should be able to enter 7 characters for id', () => {
+  // //   const ctrl = component.registerForm.get('id');
+  // //   ctrl?.setValue('n123456');
+  // //   expect(ctrl?.valid).toBeFalsy();
+  // // });
 
   it('should be able to enter 8 characters for password', () => {
     const ctrl = component.registerForm.get('password');

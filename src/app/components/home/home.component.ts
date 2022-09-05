@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  // Temporary variable for testing only. REMOVE THIS LATER
+  // TODO: Remove these testing variables later
   teamMembers = [
     {
       img: '../../../assets/images/placeholder_image.png',
@@ -35,6 +35,31 @@ export class HomeComponent implements OnInit {
       position: 'Associate Software Engineer'
     },
   ];
+
+  skills = [
+    {
+      name: 'Java',
+      details: 'Proficient with Java language and Spring framework'
+    },
+    {
+      name: 'Python',
+      details: 'Expert in Django development and anaconda applications'
+    }];
+
+  certs = [
+    {
+      name: 'AWS Certified Security Specialist',
+      details: 'Obtained 16th September 2020'
+    },
+    {
+      name: 'AWS Certified Database Specialist',
+      details: 'Obtained 32th September 1805'
+    },
+    {
+      name: 'AWS Certified Cloud Practitioner (Foundational)',
+      details: 'Obtained 16th September 2020'
+    }];
+
   constructor() { }
 
   ngOnInit(): void {
