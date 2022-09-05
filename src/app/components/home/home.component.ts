@@ -10,27 +10,27 @@ export class HomeComponent implements OnInit {
   // TODO: Remove these testing variables later
   teamMembers = [
     {
-      img: '../../../assets/images/placeholder_image.png',
+      img: '../../../assets/images/profile-placeholder.png',
       name: 'David Faulkner',
       position: 'Associate Software Engineer'
     },
     {
-      img: '../../../assets/images/placeholder_image.png',
+      img: '../../../assets/images/profile-placeholder.png',
       name: 'Joe Bell',
       position: 'Associate Software Engineer'
     },
     {
-      img: '../../../assets/images/placeholder_image.png',
+      img: '../../../assets/images/profile-placeholder.png',
       name: 'Steven Oyinlola',
       position: 'Associate Software Engineer'
     },
     {
-      img: '../../../assets/images/placeholder_image.png',
+      img: '../../../assets/images/profile-placeholder.png',
       name: 'Gerard Gray',
       position: 'Intern Software Engineer'
     },
     {
-      img: '../../../assets/images/placeholder_image.png',
+      img: '../../../assets/images/profile-placeholder.png',
       name: 'Nikita Savkos',
       position: 'Associate Software Engineer'
     },
