@@ -1,6 +1,8 @@
-
 #search {
   border-radius: 70em;
   width: 30vw;
 }
 
+.header-links {
+  cursor: pointer;
+}

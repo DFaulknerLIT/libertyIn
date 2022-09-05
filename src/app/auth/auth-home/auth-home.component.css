@@ -1,0 +1,12 @@
+.container {
+  background-color: #EFEFEF;
+  height: 100%;
+}
+
+.btn-tab {
+  background-color: #99E5EA;
+}
+
+a[active] {
+  background-color: #28A3AF;
+}
