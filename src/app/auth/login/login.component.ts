@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Login} from "../../model/auth/login";
+import {AuthService} from "../../services/auth.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +15,9 @@ export class LoginComponent implements OnInit {
   hasError: boolean = false;
   errorMessage: string = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
@@ -23,16 +26,17 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    //  TODO: Replace this test logic with actual auth logic to backend
-    //  TODO: Abstract into dedicated auth service?
-    let usernameValue: string = this.loginForm.get('username')?.value;
-    let passwordValue: string = this.loginForm.get('password')?.value;
+    let login: Login = {
+      'email': <string>this.loginForm.get('email')?.value,
+      'password': <string>this.loginForm.get('password')?.value
+    };
 
-    if(usernameValue === 'user') {
-      this.router.navigateByUrl("/");
-    } else {
-      this.errorMessage = "User is not registered on the system";
-      this.hasError = true;
-    }
+    this.authService.logIn(login).subscribe((res) => {
+        this.router.navigateByUrl("/");
+      },
+      (error: HttpErrorResponse) => {
+        this.hasError = true;
+        this.errorMessage = error.status + " Error - " + error.statusText;
+      });
   }
 }
