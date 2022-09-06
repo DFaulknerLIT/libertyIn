@@ -14,8 +14,8 @@
         </div>
       </div>
     </div>
-    <div class="user-skills flex-row pb-4">
-      <h1 class="display-4">Skills and Certifications</h1>
+    <div class="user-skills pb-4">
+      <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal">Edit Skills</button></span>
       <h4>Personal Skills</h4>
       <div class="skill-cards">
         <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of skills">
@@ -41,6 +41,7 @@
     </div>
     <div class="user-team flex-row">
       <h1 class="display-4">Team</h1>
+      <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
       <div class="team-cards">
         <div *ngFor="let employee of teamMembers">
           <div class="card mb-1 team-card">
@@ -54,4 +55,5 @@
       </div>
     </div>
   </div>
+  <app-skills-edit></app-skills-edit>
 </div>
