@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         this.hasError = true;
-        this.errorMessage = error.status + " Error - " + error.statusText;
+        if (error.status === 403) {
+          this.errorMessage = error.status + " Error - Incorrect username or password.";
+        }
       });
   }
 }

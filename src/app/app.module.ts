@@ -43,11 +43,12 @@ import { SkillsEditComponent } from './components/skills-edit/skills-edit.compon
     HttpClientModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+    // TODO: Find a way to fix this so that it doesn't apply to endpoints that do not require a token (e.g. login/registration, refresh etc.)
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

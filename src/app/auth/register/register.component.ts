@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   hasError: boolean = false;
   errorMessage: string = '';
+  hasSuccess: boolean = false;
+  successMessage: string = '';
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.registerForm = formBuilder.group({
@@ -42,18 +44,20 @@ export class RegisterComponent implements OnInit {
 
   onRegister(): void {
     let registration: Register = {
-      'email': <string>this.registerForm.get('email')?.value,
       'firstName': <string>this.registerForm.get('firstName')?.value,
       'lastName': <string>this.registerForm.get('lastName')?.value,
+      'email': <string>this.registerForm.get('email')?.value,
       'password': <string>this.registerForm.get('password')?.value,
     };
 
     this.authService.registerUser(registration).subscribe((res) => {
-        this.router.navigateByUrl("/");
-    },
-      (error: HttpErrorResponse) => {
+      if(res.status == 200) {
+        this.hasSuccess = true;
+        this.successMessage = "User created successfully, you may now log in";
+      } else {
         this.hasError = true;
-        this.errorMessage = error.status + " Error - " + error.statusText;
+        this.errorMessage = res.status + " Error - " + res.statusText;
+      }
     });
   }
 }
