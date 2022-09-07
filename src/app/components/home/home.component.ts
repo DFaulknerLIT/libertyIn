@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
         this.profile = res;
         this.isLoggedIn = true;
       }
-    })
+    });
   }
 
 }
