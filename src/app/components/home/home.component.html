@@ -53,22 +53,28 @@
         <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal">Edit Skills</button></span>
         <h4>Personal Skills</h4>
         <div class="skill-cards">
+          <div *ngIf="(profile.userProfile.skills).length==0">
+            <p class="error">This user has no skills yet!</p>
+          </div>
           <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of profile.userProfile.skills">
               <div class="card mb-1">
                 <div class="card-body">
-                  <h5 class="card-title" id="empSkillName">{{skill.name}}</h5>
-                  <p class="card-text" id="empSkillDetail">{{skill.details}}</p>
+                  <h5 class="card-title" id="empSkillName">{{skill}}</h5>
+<!--                  <p class="card-text" id="empSkillDetail">{{skill.details}}</p>-->
                 </div>
               </div>
           </div>
         </div>
         <h4>Certifications</h4>
         <div class="skill-cards">
-          <div id="empCertifications" class="col-md-4" *ngFor="let cert of profile.userProfile.certs">
+          <div *ngIf="(profile.userProfile.certifications).length==0">
+            <p class="error">This user has no certifications yet!</p>
+          </div>
+          <div id="empCertifications" class="col-md-4" *ngFor="let cert of profile.userProfile.certifications">
               <div class="card mb-1">
                 <div class="card-body">
-                  <h5 class="card-title" id="empCertName">{{cert.name}}</h5>
-                  <p class="card-text" id="empCertDetail">{{cert.details}}</p>
+                  <h5 class="card-title" id="empCertName">{{cert}}</h5>
+<!--                  <p class="card-text" id="empCertDetail">{{cert.details}}</p>-->
                 </div>
               </div>
           </div>
