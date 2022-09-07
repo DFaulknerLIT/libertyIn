@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { SkillsEditComponent } from './components/skills-edit/skills-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     DiscoverResultsComponent,
     DiscoverComponent,
     FooterComponent,
+    SkillsEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule
   ],
   providers: [
+    // TODO: Find a way to fix this so that it doesn't apply to endpoints that do not require a token (e.g. login/registration, refresh etc.)
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

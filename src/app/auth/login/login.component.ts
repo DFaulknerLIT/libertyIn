@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Login} from "../../model/auth/login";
 import {AuthService} from "../../services/auth.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import { LocalStorageService } from 'src/app/services/localstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   hasError: boolean = false;
   errorMessage: string = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private localStorageService: LocalStorageService) {
     this.loginForm = formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,11 +33,15 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.logIn(login).subscribe((res) => {
+        this.localStorageService.set('user_access_token', res.access_token);
+        this.localStorageService.set('user_refresh_token', res.refresh_token);
         this.router.navigateByUrl("/");
       },
       (error: HttpErrorResponse) => {
         this.hasError = true;
-        this.errorMessage = error.status + " Error - " + error.statusText;
-      });
+        if (error.status === 403) {
+          this.errorMessage = error.status + " Error - Incorrect username or password.";
+        }
+    });
   }
 }

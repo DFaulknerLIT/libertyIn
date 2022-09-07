@@ -6,13 +6,19 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // TODO: Replace with actual auth for the backend - this is merely a placeholder for testing
-    request = request.clone({
-      setHeaders: {
-        Authorization: 'Bearer 1234'
+    if(request.headers.get("skip")) {
+      return next.handle(request);
+    } else {
+      let access_token = localStorage.getItem('user_access_token');
+      if (access_token) {
+        request = request.clone({
+          setHeaders: {
+            Authorization: 'Bearer ' + access_token
+          }
+        });
+        return next.handle(request);
       }
-    });
-
-    return next.handle(request);
+      return next.handle(request);
+    }
   }
 }

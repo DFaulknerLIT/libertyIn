@@ -9,6 +9,17 @@
   </div>
 </div>
 
+<div class="alert alert-success" role="alert" *ngIf="hasSuccess">
+  <div class="icon-container">
+    <i class="fal fa-fw fa-exclamation-circle"></i>
+  </div>
+  <div class="alert-message">
+        <span class="align-self-center">
+            {{successMessage}}
+        </span>
+  </div>
+</div>
+
 <div class="text-center col-md-12 col lg-12">
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class=“catalyst-form”>
     <div class="row justify-content-center">
