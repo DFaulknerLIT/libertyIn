@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   registerUser(registration: Register): Observable<any> {
-    return this.http.post(url + '/api/v1/registration', registration);
+    return this.http.post(url + '/api/v1/registration', registration, {headers:{skip:"true"}});
   }
 
   logIn(login: Login) {
@@ -25,7 +25,7 @@ export class AuthService {
     body.set('username', login.email);
     body.set('password', login.password);
     let options = {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('skip', 'true')
     };
     return this.http.post<LogInTokenResponse>(url + '/login', body.toString(), options);
   }
