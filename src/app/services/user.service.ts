@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 const url = environment.serverUrl;
 
@@ -12,8 +13,8 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getUserAccount() {
+  getUserAccount(): Observable<any> {
     // Requires auth token in header, appended in AuthInterceptor
-    return this.http.get(url + 'api/v1/account');
+    return this.http.get(url + '/api/v1/account');
   }
 }

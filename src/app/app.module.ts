@@ -19,6 +19,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { SkillsEditComponent } from './components/skills-edit/skills-edit.component';
+import { EditUserDetailsComponent } from './components/edit-user-details/edit-user-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SkillsEditComponent } from './components/skills-edit/skills-edit.compon
     DiscoverComponent,
     FooterComponent,
     SkillsEditComponent,
+    EditUserDetailsComponent,
   ],
   imports: [
     BrowserModule,

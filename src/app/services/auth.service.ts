@@ -46,6 +46,6 @@ export class AuthService {
     let options = {
       headers: new HttpHeaders().set('skip', 'true').set('Authorization', 'Bearer ' + localStorage.getItem('user_refresh_token'))
     }
-    this.http.post<LogInTokenResponse>(url + "api/v1/token/refresh", null);
+    this.http.post<LogInTokenResponse>(url + "/api/v1/token/refresh", null);
   }
 }

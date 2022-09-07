@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   hasSuccess: boolean = false;
   successMessage: string = "";
   errorMessage: string = "";
+  profile: any;
 
   // TODO: Remove these testing variables later
   teamMembers = [
@@ -71,6 +72,16 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
+    this.userService.getUserAccount().subscribe((res) => {
+      if(res.statusCode == 403) {
+        this.isLoggedIn = false;
+        this.hasError = true;
+        this.errorMessage = "403 Error - Not a valid login"
+      } else {
+        this.profile = res;
+        this.isLoggedIn = true;
+      }
+    })
   }
 
 }
