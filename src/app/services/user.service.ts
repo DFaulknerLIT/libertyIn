@@ -17,4 +17,9 @@ export class UserService {
     // Requires auth token in header, appended in AuthInterceptor
     return this.http.get(url + '/api/v1/account');
   }
+
+  updateUserJobTitle(jobTitle: string): Observable<any> {
+    return this.http.put(url + '/api/v1/account/job_title', {input:jobTitle});
+  }
+
 }

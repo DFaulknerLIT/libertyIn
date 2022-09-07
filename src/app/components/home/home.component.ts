@@ -69,9 +69,10 @@ export class HomeComponent implements OnInit {
       details: 'Obtained 16th September 2020'
     }];
 
-  constructor(private userService: UserService, private localStorageService: LocalStorageService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    // TODO: Tidy up request error handling
     this.userService.getUserAccount().subscribe((res) => {
       if(res.statusCode == 403) {
         this.isLoggedIn = false;
