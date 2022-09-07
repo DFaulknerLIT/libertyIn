@@ -1,4 +1,26 @@
 <div class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="hasError">
+    <div class="icon-container">
+      <i class="fal fa-fw fa-exclamation-circle"></i>
+    </div>
+    <div class="alert-message">
+        <span class="align-self-center">
+            {{errorMessage}}
+        </span>
+    </div>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="hasSuccess">
+    <div class="icon-container">
+      <i class="fal fa-fw fa-exclamation-circle"></i>
+    </div>
+    <div class="alert-message">
+        <span class="align-self-center">
+            {{successMessage}}
+        </span>
+    </div>
+  </div>
+
   <div class="header p-1">
     <h1 class="display-3">Your Profile</h1>
   </div>

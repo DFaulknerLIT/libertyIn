@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localstorage.service';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { LocalStorageService } from 'src/app/services/localstorage.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  hasError: boolean = false;
+  isLoggedIn: boolean = false;
+  hasSuccess: boolean = false;
+  successMessage: string = "";
+  errorMessage: string = "";
 
   // TODO: Remove these testing variables later
   teamMembers = [
@@ -61,7 +68,7 @@ export class HomeComponent implements OnInit {
       details: 'Obtained 16th September 2020'
     }];
 
-  constructor(private localStorageService: LocalStorageService) { }
+  constructor(private userService: UserService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
   }
