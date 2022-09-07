@@ -40,9 +40,9 @@
                  [formControl]="control"
                  [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let name of filteredNames | async" [value]="name" >
+            <mat-option *ngFor="let name of userList | async" [value]="name" >
               <img width="4%" height="4%" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"> -
-                  <b>{{name}}</b> - Skills: <small>Typescript, Angular, Java, javascript </small>- Qualifications: <small>AWS Certification</small>
+                  <b>{{name.firstName}} {{name.lastName}}</b> {{name.jobTitle}} - Skills: <small>Typescript, Angular, Java, javascript </small>- Qualifications: <small>AWS Certification</small>
             </mat-option>
 
           </mat-autocomplete>
