@@ -22,7 +22,7 @@
   </div>
 
   <div class="header p-1">
-    <h1 class="display-3">Your Profile</h1>
+    <span><h1 class="display-3 profile-title">Your Profile</h1> <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal">Edit User Details</button></span>
   </div>
 
   <div *ngIf="isLoggedIn">
@@ -45,7 +45,6 @@
               <p class="pr-3 error" id="teamNameError">Team has not been set!</p>
             </div>
             <p id="empTeam"><b>{{profile.userProfile.teamName}}</b></p>
-            <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal">Edit User Details</button>
           </div>
         </div>
       </div>

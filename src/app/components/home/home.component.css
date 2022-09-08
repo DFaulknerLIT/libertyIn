@@ -38,3 +38,8 @@
 .error {
   color: red;
 }
+
+.profile-title {
+  display: inline;
+  padding-right: 30px;
+}
