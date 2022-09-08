@@ -43,10 +43,10 @@
             <p class="pr-3 error" id="jobTitleError">Job Title has not been set!</p>
           </div>
           <p class="pr-3" id="empJobTitle"><b>{{profile.userProfile.jobTitle}}</b></p>
-          <div *ngIf="profile.userProfile.teamName === null">
+          <div *ngIf="profile.userProfile.team === null">
             <p class="pr-3 error" id="teamNameError">Team has not been set!</p>
           </div>
-          <p id="empTeam"><b>{{profile.userProfile.teamName}}</b></p>
+          <p id="empTeam"><b>{{profile.userProfile.team}}</b></p>
         </div>
       </div>
     </div>
@@ -84,14 +84,19 @@
     </div>
     <div class="user-team flex-row">
       <h1 class="display-4">Team</h1>
-      <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
-      <div class="team-cards">
-        <div *ngFor="let employee of teamMembers">
-          <div class="card mb-1 team-card">
-            <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
-            <div class="card-body">
-              <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
-              <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
+      <div *ngIf="profile.userProfile.team === null">
+        <p class="pr-3 error" id="teamViewError">Team has not been set!</p>
+      </div>
+      <div *ngIf="profile.userProfile.team !== null">
+        <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
+        <div class="team-cards">
+          <div *ngFor="let employee of teamMembers">
+            <div class="card mb-1 team-card">
+              <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
+              <div class="card-body">
+                <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
+                <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
+              </div>
             </div>
           </div>
         </div>
