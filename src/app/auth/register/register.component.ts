@@ -51,13 +51,21 @@ export class RegisterComponent implements OnInit {
     };
 
     this.authService.registerUser(registration).subscribe((res) => {
-      if(res.status == 200) {
-        this.hasSuccess = true;
-        this.successMessage = "User created successfully, you may now log in";
-      } else {
-        this.hasError = true;
-        this.errorMessage = res.status + " Error - " + res.statusText;
-      }
+      // TODO: Fix responses in the backend
+        // this.hasSuccess = true;
+        // this.successMessage = "User created successfully, you may now log in";
+    },
+      (error: HttpErrorResponse) => {
+        if(error.status == 200) {
+          this.hasSuccess = true;
+          this.successMessage = "User created successfully, you may now log in";
+        } else if (error.status == 500) {
+          this.hasError = true;
+          this.errorMessage = error.status + " Error - Email address has already been registered on LibertyIn";
+        } else {
+          this.hasError = true;
+          this.errorMessage = error.status + "Error - " + error.statusText;
+        }
     });
   }
 }
