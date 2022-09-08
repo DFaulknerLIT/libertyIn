@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="modal fade col-md-6 col-lg-6 offset-3" id="userDetailsModal" tabindex="-1" role="dialog" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userDetailsModalLabel">Editing User Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center col-lg-12 col-md-12">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class=“catalyst-form”>
+              <div class="row">
+                <div class="col-12">
+                  <fieldset class="card p-lg-4 p-md-3 p-2" id="loginFormSection">
+                    <div class="fields">
+                      <div class="pb-2">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="form-group">
+                            <label for="jobTitleField">Job Title
+                              <input class="form-control" id="jobTitleField" name="field-jobTitle"
+                                     placeholder=" " type="text" formControlName="jobTitle">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="pb-2">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="form-group">
+                            <label for="teamNameField">Team
+                              <input class="form-control" id="teamNameField" name="field-teamName"
+                                     placeholder=" " type="text" formControlName="teamName">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                          <fieldset>
+                            <input class="btn btn-primary btn-half-center" data-testid="submit-button" type="submit" value="Update Details"/>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
