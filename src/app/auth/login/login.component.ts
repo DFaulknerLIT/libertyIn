@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(login).subscribe((res) => {
         this.localStorageService.set('user_access_token', res.access_token);
         this.localStorageService.set('user_refresh_token', res.refresh_token);
-        this.router.navigateByUrl("/");
+        this.router.navigateByUrl("/users/self");
       },
       (error: HttpErrorResponse) => {
         this.hasError = true;

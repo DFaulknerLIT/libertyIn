@@ -24,7 +24,7 @@
 
 <div class="container">
   <div class="header p-1">
-    <span><h1 class="display-3 profile-title">Your Profile</h1> <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal">Edit User Details</button></span>
+    <span><h1 class="display-3 profile-title">Your Profile</h1> <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal" *ngIf="isCurrentUser">Edit User Details</button></span>
   </div>
 
   <div class="user-info d-flex flex-column align-items-start">
@@ -52,7 +52,7 @@
     </div>
     <div class="user-skills pb-4">
       <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button
-        class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal">Edit Skills</button></span>
+        class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal" *ngIf="isCurrentUser">Edit Skills</button></span>
       <h4>Personal Skills</h4>
       <div class="skill-cards">
         <div *ngIf="(profile.userProfile.skills).length==0">
