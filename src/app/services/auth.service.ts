@@ -35,17 +35,18 @@ export class AuthService {
     // TODO: Check if auth token has expired
     let authToken = localStorage.getItem('user_access_token');
     return authToken !== null;
-
-  }
-
-  isTokenExpired() {
-    // TODO: Implement this later
   }
 
   refreshToken() {
     let options = {
       headers: new HttpHeaders().set('skip', 'true').set('Authorization', 'Bearer ' + localStorage.getItem('user_refresh_token'))
     }
-    this.http.post<LogInTokenResponse>(url + "/api/v1/token/refresh", null);
+    this.http.post<LogInTokenResponse>(url + "/api/v1/token/refresh", null, options);
+  }
+
+  logout(): void {
+    // Soft logout by deleting the keys in localStorage. This will force the user to log in again if they want to regain access
+    localStorage.removeItem('user_access_token');
+    localStorage.removeItem('user_refresh_token');
   }
 }

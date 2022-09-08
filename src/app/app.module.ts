@@ -44,6 +44,9 @@ import { EditUserDetailsComponent } from './components/edit-user-details/edit-us
     MatNativeDateModule,
     HttpClientModule
   ],
+  exports: [
+    HeaderComponent
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
