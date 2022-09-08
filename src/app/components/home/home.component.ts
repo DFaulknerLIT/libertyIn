@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localstorage.service';
 import {UserService} from "../../services/user.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -72,16 +73,20 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // TODO: Tidy up request error handling
     this.userService.getUserAccount().subscribe((res) => {
-      if(res.statusCode == 403) {
-        this.isLoggedIn = false;
-        this.hasError = true;
-        this.errorMessage = "403 Error - Not a valid login"
-      } else {
         this.profile = res;
         this.isLoggedIn = true;
-      }
+    },
+      (error: HttpErrorResponse) => {
+        if(error.status == 403) {
+          this.isLoggedIn = false;
+          this.hasError = true;
+          this.errorMessage = "403 Error - Not a valid login"
+        } else {
+          // Should not trigger but we'll fix this later
+          this.profile = error;
+          this.isLoggedIn = true;
+        }
     });
   }
 
