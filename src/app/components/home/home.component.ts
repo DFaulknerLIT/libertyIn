@@ -11,7 +11,6 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class HomeComponent implements OnInit {
 
   hasError: boolean = false;
-  isLoggedIn: boolean = false;
   hasSuccess: boolean = false;
   successMessage: string = "";
   errorMessage: string = "";
@@ -75,17 +74,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserAccount().subscribe((res) => {
         this.profile = res;
-        this.isLoggedIn = true;
     },
       (error: HttpErrorResponse) => {
         if(error.status == 403) {
-          this.isLoggedIn = false;
           this.hasError = true;
           this.errorMessage = "403 Error - Not a valid login"
         } else {
           // Should not trigger but we'll fix this later
           this.profile = error;
-          this.isLoggedIn = true;
         }
     });
   }
