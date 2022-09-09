@@ -26,29 +26,11 @@ export class DiscoverComponent implements OnInit {
   ngOnInit(): void {
 
     this.userList = this.discoverService.getUserList()
-    console.log("this is user list: " + this.userList.source.source.source._subscribe)
 
-    console.log("this is user list teest: " + this.userList.source.source.source._subscribe)
+  }
 
-    for( var user in this.userList){
-      console.log('test: ' + user)
+showUser(user: String) {
+      this.router.navigateByUrl("/users/"+user);
     }
-
-    // @ts-ignore
-    this.filteredNames = this.control.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = this._normalizeValue(value);
-    return this.name.filter(street => this._normalizeValue(street).includes(filterValue));
-  }
-
-  private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
-  }
-
 
 }

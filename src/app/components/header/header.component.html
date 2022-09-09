@@ -14,8 +14,23 @@
             <div class="col-12">
               <div class="form-group form-group-icon icon-right">
                 <i class="fal fa-fw fa-search input-icon"></i>
-                <input autocomplete="off" type="text" class="form-control" id="search" name="search" placeholder=" ">
-                <label for="search">Search</label>
+                <form class="example-form" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+                  <input type="text"
+
+                         id="search"
+                         placeholder="Search"
+
+                         [matAutocomplete]="auto"
+                         [matAutocompleteConnectedTo]="origin">
+                  <mat-autocomplete #test #auto="matAutocomplete">
+                    <mat-option *ngFor="let name of userList | async" [value]="" (click)="showUser(name.email)" >
+                      <img width="4%" height="4%" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"> -
+                      <b>{{name.firstName}} {{name.lastName}}</b> {{name.jobTitle}} - Skills: <small>Typescript, Angular, Java, javascript </small>- Qualifications: <small>AWS Certification</small>
+                    </mat-option>
+
+                  </mat-autocomplete>
+
+                </form>
               </div>
             </div>
           </div>
