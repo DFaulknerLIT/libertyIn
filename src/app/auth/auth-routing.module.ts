@@ -4,7 +4,7 @@ import {AuthHomeComponent} from "./auth-home/auth-home.component";
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: '',
     children: [
       {
         path:'',
