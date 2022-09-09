@@ -27,12 +27,12 @@ const routes: Routes = [
     canActivate: [
       AuthGuard
     ]
-  },
-  {
-    path:'**',
-    pathMatch: "full",
-    component: PageNotFoundComponent
   }
+  // {
+  //   path:'**',
+  //   pathMatch: "full",
+  //   component: PageNotFoundComponent
+  // }
 ];
 
 @NgModule({
