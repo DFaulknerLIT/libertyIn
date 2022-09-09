@@ -4,6 +4,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {DiscoverComponent} from "./components/discover/discover.component";
 import {DiscoverResultsComponent} from "./components/discover-results/discover-results.component";
 import {AuthGuard} from "./services/auth.guard";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
     canActivate: [
       AuthGuard
     ]
+  },
+  {
+    path:'**',
+    pathMatch: "full",
+    component: PageNotFoundComponent
   }
 ];
 

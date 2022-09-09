@@ -20,6 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { SkillsEditComponent } from './components/skills-edit/skills-edit.component';
 import { EditUserDetailsComponent } from './components/edit-user-details/edit-user-details.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { EditUserDetailsComponent } from './components/edit-user-details/edit-us
     FooterComponent,
     SkillsEditComponent,
     EditUserDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
