@@ -54,7 +54,8 @@
       </div>
       <div class="user-skills pb-4">
         <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button
-          class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal" *ngIf="isCurrentUser">Edit Skills</button></span>
+          class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal" *ngIf="isCurrentUser">Edit Skills</button><button
+          class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#certsModal" *ngIf="isCurrentUser">Edit Certifications</button></span>
         <h4>Personal Skills</h4>
         <div class="skill-cards">
           <div *ngIf="(profile.userProfile.skills).length==0">
@@ -108,6 +109,7 @@
     </div>
     <app-skills-edit></app-skills-edit>
     <app-edit-user-details></app-edit-user-details>
+    <app-certs-edit></app-certs-edit>
   </div>
 
   <div *ngIf="hasError">

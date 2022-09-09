@@ -22,6 +22,7 @@ import { SkillsEditComponent } from './components/skills-edit/skills-edit.compon
 import { EditUserDetailsComponent } from './components/edit-user-details/edit-user-details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {RouterModule} from "@angular/router";
+import { CertsEditComponent } from './components/certs-edit/certs-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {RouterModule} from "@angular/router";
     FooterComponent,
     SkillsEditComponent,
     EditUserDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CertsEditComponent
   ],
   imports: [
     BrowserModule,
