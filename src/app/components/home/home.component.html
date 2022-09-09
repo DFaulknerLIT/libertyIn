@@ -63,8 +63,8 @@
           <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of profile.userProfile.skills">
             <div class="card mb-1">
               <div class="card-body">
-                <h5 class="card-title" id="empSkillName">{{skill}}</h5>
-                <!--                  <p class="card-text" id="empSkillDetail">{{skill.details}}</p>-->
+                <h5 class="card-title" id="empSkillName">{{skill.name}}</h5>
+                <p class="card-text" id="empSkillDetail">{{skill.description}}</p>
               </div>
             </div>
           </div>
@@ -77,8 +77,8 @@
           <div id="empCertifications" class="col-md-4" *ngFor="let cert of profile.userProfile.certifications">
             <div class="card mb-1">
               <div class="card-body">
-                <h5 class="card-title" id="empCertName">{{cert}}</h5>
-                <!--                  <p class="card-text" id="empCertDetail">{{cert.details}}</p>-->
+                <h5 class="card-title" id="empCertName">{{cert.name}}</h5>
+                <p class="card-text" id="empCertDetail">{{cert.description}}</p>
               </div>
             </div>
           </div>
@@ -90,14 +90,15 @@
           <p class="pr-3 error" id="teamViewError">Team has not been set!</p>
         </div>
         <div *ngIf="profile.userProfile.team !== null">
-          <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
+          <p class="teamName"><b>{{team.name}}</b></p>
           <div class="team-cards">
-            <div *ngFor="let employee of teamMembers">
-              <div class="card mb-1 team-card">
-                <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
+            <div *ngFor="let employee of team.members">
+              <div class="card mb-1 team-card" [routerLink]="['/users', employee.email]" >
+                <img class="card-img-top" id="teamEmpImg" *ngIf="employee.profilePic !== null" src="{{employee.img}}" alt="Employee Profile Image">
+                <img class="card-img-top" id="teamEmpImgPlaceholder" *ngIf="employee.profilePic === null" src="../../../assets/images/profile-placeholder.png" alt="Employee Profile Image">
                 <div class="card-body">
-                  <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
-                  <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
+                  <h5 class="card-title" id="teamEmpName">{{employee.firstName}} {{employee.lastName}}</h5>
+                  <p class="card-text" id="teamEmpJobTitle">{{employee.jobTitle}}</p>
                 </div>
               </div>
             </div>

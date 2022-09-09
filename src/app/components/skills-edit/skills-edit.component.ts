@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-skills-edit',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsEditComponent implements OnInit {
 
-  constructor() { }
+  profile: any;
+  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.userService.getUserAccount().subscribe((res) => {
+      this.profile = res;
+    });
+  }
+
+  onSkillAdd() {
+
+  }
+
+  onSkillDelete() {
+
   }
 
 }

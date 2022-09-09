@@ -32,8 +32,10 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="form-group">
                             <label for="teamNameField">Team
-                              <input class="form-control" id="teamNameField" name="field-teamName"
-                                     placeholder=" " type="text" formControlName="teamName">
+                              <select class="form-control" id="teamNameField" name="field-teamName" formControlName="teamName">
+                                <option value="none"></option>
+                                <option *ngFor="let team of teamsList" value="{{team.name}}">{{team.name}}</option>
+                              </select>
                             </label>
                           </div>
                         </div>

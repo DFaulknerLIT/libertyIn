@@ -16,37 +16,9 @@ export class HomeComponent implements OnInit {
   successMessage: string = "";
   errorMessage: string = "";
   profile: any;
+  team: any;
   userId: string | null = "";
   isCurrentUser: boolean = false;
-
-  // TODO: Remove these testing variables later
-  teamMembers = [
-    {
-      img: '../../../assets/images/profile-placeholder.png',
-      name: 'David Faulkner',
-      position: 'Associate Software Engineer'
-    },
-    {
-      img: '../../../assets/images/profile-placeholder.png',
-      name: 'Joe Bell',
-      position: 'Associate Software Engineer'
-    },
-    {
-      img: '../../../assets/images/profile-placeholder.png',
-      name: 'Steven Oyinlola',
-      position: 'Associate Software Engineer'
-    },
-    {
-      img: '../../../assets/images/profile-placeholder.png',
-      name: 'Gerard Gray',
-      position: 'Intern Software Engineer'
-    },
-    {
-      img: '../../../assets/images/profile-placeholder.png',
-      name: 'Nikita Savkos',
-      position: 'Associate Software Engineer'
-    },
-  ];
 
   skills = [
     {
@@ -83,6 +55,12 @@ export class HomeComponent implements OnInit {
       this.userService.getUserAccount().subscribe((res) => {
           this.profile = res;
           this.isCurrentUser = true;
+
+          if(res.userProfile.team !== null) {
+            this.userService.getTeamByName(res.userProfile.team).subscribe((res) => {
+              this.team = res;
+            });
+          }
         },
         (error: HttpErrorResponse) => {
           if(error.status == 403) {
