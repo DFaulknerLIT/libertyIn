@@ -102,13 +102,14 @@ export class HomeComponent implements OnInit {
           this.isCurrentUser = false;
         },
         (error: HttpErrorResponse) => {
-          if (error.status == 403) {
+          if (error.status === 403) {
+            console.log(error.status)
+            this.errorMessage = "403 Error - User " + this.userId + " not found.";
             this.hasError = true;
-            this.errorMessage = "403 Error - Not a valid login"
-          } else if (error.status == 400) {
+          } else if (error.status === 400) {
             // Should not trigger but we'll fix this later
+            this.errorMessage = "400 Error - User does not exist";
             this.hasError = true;
-            this.errorMessage = "400 Error - User does not exist"
           }
         });
     }
