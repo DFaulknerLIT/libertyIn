@@ -9,7 +9,63 @@
           </button>
         </div>
         <div class="modal-body">
-          PLACEHOLDER
+          <div class="alert alert-success" role="alert" *ngIf="hasSuccess">
+            <div class="icon-container">
+              <i class="fal fa-fw fa-exclamation-circle"></i>
+            </div>
+            <div class="alert-message">
+        <span class="align-self-center">
+            {{successMessage}}
+        </span>
+            </div>
+          </div>
+          <div id="skillsTable">
+            <h3>Current Skills</h3>
+          </div>
+          <hr>
+          <div id="skillsForm">
+            <h3>Add a skill</h3>
+            <form [formGroup]="skillForm" (ngSubmit)="onSkillAdd()" class=“catalyst-form”>
+              <div class="row">
+                <div class="col-12">
+                  <fieldset class="card p-lg-4 p-md-3 p-2" id="skillFormSection">
+
+                    <div class="fields">
+                      <div class="pb-2">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="form-group">
+                            <label for="skillField">Skill
+                              <input class="form-control" id="skillField" name="field-skill"
+                                     placeholder=" " type="text" formControlName="skill">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="pb-2">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="form-group">
+                            <label for="descriptionField">Description
+                              <input class="form-control" id="descriptionField" name="field-description"
+                                     placeholder=" " type="text" formControlName="description">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                          <fieldset>
+                            <input class="btn btn-primary btn-half-center" data-testid="submit-button" type="submit" [disabled]="!skillForm.valid" value="Add Skill"/>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
