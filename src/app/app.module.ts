@@ -7,6 +7,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { DiscoverResultsComponent } from './components/discover-results/discover-results.component';
 import { DiscoverComponent } from './components/discover/discover.component';
+<<<<<<< HEAD
+=======
+import { AuthRoutingModule } from "./auth/auth-routing.module";
+import {AuthModule} from "./auth/auth.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
+>>>>>>> 7cb0532ca1bc5e1e87d517d9c944be8b5a891033
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
@@ -35,6 +42,16 @@ import { FooterComponent } from './components/footer/footer.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     HttpClientModule
+<<<<<<< HEAD
+=======
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+>>>>>>> 7cb0532ca1bc5e1e87d517d9c944be8b5a891033
   ],
   providers: [],
   bootstrap: [AppComponent]
