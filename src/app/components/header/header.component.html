@@ -21,7 +21,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <h6 class="nav-link header-links" href="#" id="discover" routerLink="discover">Discover</h6>
+          <h6 class="nav-link header-links" href="#" id="discover" routerLink="discover" (click)="onDiscover()">Discover</h6>
         </li>
         <li class="nav-item">
           <button *ngIf="!isLoggedOn" class="btn btn-rounded btn-primary" id="logout" (click)="onLogOut()">Log Out</button>

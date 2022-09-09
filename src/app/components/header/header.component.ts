@@ -23,4 +23,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("/");
   }
 
+  onDiscover() {
+
+      this.router.navigateByUrl("/discover");
+    }
+
 }
