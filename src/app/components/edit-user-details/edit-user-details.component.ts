@@ -36,20 +36,18 @@ export class EditUserDetailsComponent implements OnInit {
     // TODO: Better error handling here
     if(this.editForm.get('jobTitle')?.value !== "") {
       this.userService.updateUserJobTitle(this.editForm.get('jobTitle')?.value).subscribe((res) => {
-        if(res.statusCode === 200) {
-          this.router.navigateByUrl("/");
-        }
+        console.log(res);
       });
     }
 
-    if(this.editForm.get('teamName')?.value !== "none") {
+    if(this.editForm.get('teamName')?.value !== "") {
+      console.log(this.editForm.get('teamName')?.value)
       this.userService.updateUserTeam(this.editForm.get('teamName')?.value, this.userEmail).subscribe((res) => {
         console.log(res);
-        if(res.statusCode === 200) {
-          this.router.navigateByUrl("/");
-        }
       });
     }
+
+    this.router.navigateByUrl("/users/self");
   }
 
 }
