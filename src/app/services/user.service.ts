@@ -18,6 +18,13 @@ export class UserService {
     return this.http.get(url + '/api/v1/account');
   }
 
+  getUserAccountByEmail(username: string): Observable<any> {
+    let body = {
+      input: username
+    }
+    return this.http.put(url + '/api/v1/users/retrieve', body);
+}
+
   updateUserJobTitle(jobTitle: string): Observable<any> {
     return this.http.put(url + '/api/v1/account/job_title', {input:jobTitle});
   }

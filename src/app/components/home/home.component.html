@@ -1,108 +1,111 @@
 <app-header></app-header>
 
-<div class="alert alert-danger" role="alert" *ngIf="hasError">
-  <div class="icon-container">
-    <i class="fal fa-fw fa-exclamation-circle"></i>
-  </div>
-  <div class="alert-message">
+<div class="container">
+
+  <div class="alert alert-danger" role="alert" *ngIf="hasError">
+    <div class="icon-container">
+      <i class="fal fa-fw fa-exclamation-circle"></i>
+    </div>
+    <div class="alert-message">
         <span class="align-self-center">
             {{errorMessage}}
         </span>
+    </div>
   </div>
-</div>
 
-<div class="alert alert-success" role="alert" *ngIf="hasSuccess">
-  <div class="icon-container">
-    <i class="fal fa-fw fa-exclamation-circle"></i>
-  </div>
-  <div class="alert-message">
+  <div class="alert alert-success" role="alert" *ngIf="hasSuccess">
+    <div class="icon-container">
+      <i class="fal fa-fw fa-exclamation-circle"></i>
+    </div>
+    <div class="alert-message">
         <span class="align-self-center">
             {{successMessage}}
         </span>
-  </div>
-</div>
-
-<div class="container">
-  <div class="header p-1">
-    <span><h1 class="display-3 profile-title">Your Profile</h1> <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal">Edit User Details</button></span>
+    </div>
   </div>
 
-  <div class="user-info d-flex flex-column align-items-start">
-    <div class="user-personal-info d-flex flex-row mb-3 pb-4">
-      <div *ngIf="profile.userProfile.profilePic === null">
-        <img id="empImgPlaceholder" src="../../../assets/images/profile-placeholder.png" class="user-profile-pic mr-3"
-             alt="Profile Picture">
-      </div>
-      <div *ngIf="profile.userProfile.profilePic !== null">
-        <img id="empImg" src="{{profile.userProfile.profilePic}}" class="user-profile-pic mr-3" alt="Profile Picture">
-      </div>
-      <div class="flex-column">
-        <h1 class="display-4" id="empName">{{profile.userProfile.firstName}} {{profile.userProfile.lastName}}</h1>
-        <div class="d-flex align-items-start">
-          <div *ngIf="profile.userProfile.jobTitle === null">
-            <p class="pr-3 error" id="jobTitleError">Job Title has not been set!</p>
-          </div>
-          <p class="pr-3" id="empJobTitle"><b>{{profile.userProfile.jobTitle}}</b></p>
-          <div *ngIf="profile.userProfile.team === null">
-            <p class="pr-3 error" id="teamNameError">Team has not been set!</p>
-          </div>
-          <p id="empTeam"><b>{{profile.userProfile.team}}</b></p>
-        </div>
-      </div>
+  <div *ngIf="!hasError">
+    <div class="header p-1">
+      <span><h1 class="display-3 profile-title">User Profile</h1> <button class="btn btn-rounded btn-primary mr-4" data-toggle="modal" data-target="#userDetailsModal" *ngIf="isCurrentUser">Edit User Details</button></span>
     </div>
-    <div class="user-skills pb-4">
-      <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button
-        class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal">Edit Skills</button></span>
-      <h4>Personal Skills</h4>
-      <div class="skill-cards">
-        <div *ngIf="(profile.userProfile.skills).length==0">
-          <p class="error">This user has no skills yet!</p>
+
+    <div class="user-info d-flex flex-column align-items-start">
+      <div class="user-personal-info d-flex flex-row mb-3 pb-4">
+        <div *ngIf="profile.userProfile.profilePic === null">
+          <img id="empImgPlaceholder" src="../../../assets/images/profile-placeholder.png" class="user-profile-pic mr-3"
+               alt="Profile Picture">
         </div>
-        <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of profile.userProfile.skills">
-          <div class="card mb-1">
-            <div class="card-body">
-              <h5 class="card-title" id="empSkillName">{{skill}}</h5>
-              <!--                  <p class="card-text" id="empSkillDetail">{{skill.details}}</p>-->
+        <div *ngIf="profile.userProfile.profilePic !== null">
+          <img id="empImg" src="{{profile.userProfile.profilePic}}" class="user-profile-pic mr-3" alt="Profile Picture">
+        </div>
+        <div class="flex-column">
+          <h1 class="display-4" id="empName">{{profile.userProfile.firstName}} {{profile.userProfile.lastName}}</h1>
+          <div class="d-flex align-items-start">
+            <div *ngIf="profile.userProfile.jobTitle === null">
+              <p class="pr-3 error" id="jobTitleError">Job Title has not been set!</p>
             </div>
+            <p class="pr-3" id="empJobTitle"><b>{{profile.userProfile.jobTitle}}</b></p>
+            <div *ngIf="profile.userProfile.team === null">
+              <p class="pr-3 error" id="teamNameError">Team has not been set!</p>
+            </div>
+            <p id="empTeam"><b>{{profile.userProfile.team}}</b></p>
           </div>
         </div>
       </div>
-      <h4>Certifications</h4>
-      <div class="skill-cards">
-        <div *ngIf="(profile.userProfile.certifications).length==0">
-          <p class="error">This user has no certifications yet!</p>
-        </div>
-        <div id="empCertifications" class="col-md-4" *ngFor="let cert of profile.userProfile.certifications">
-          <div class="card mb-1">
-            <div class="card-body">
-              <h5 class="card-title" id="empCertName">{{cert}}</h5>
-              <!--                  <p class="card-text" id="empCertDetail">{{cert.details}}</p>-->
-            </div>
+      <div class="user-skills pb-4">
+        <span><h1 class="display-4 skills-header">Skills and Certifications</h1><button
+          class="btn btn-rounded btn-primary" data-toggle="modal" data-target="#skillsModal" *ngIf="isCurrentUser">Edit Skills</button></span>
+        <h4>Personal Skills</h4>
+        <div class="skill-cards">
+          <div *ngIf="(profile.userProfile.skills).length==0">
+            <p class="error">This user has no skills yet!</p>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="user-team flex-row">
-      <h1 class="display-4">Team</h1>
-      <div *ngIf="profile.userProfile.team === null">
-        <p class="pr-3 error" id="teamViewError">Team has not been set!</p>
-      </div>
-      <div *ngIf="profile.userProfile.team !== null">
-        <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
-        <div class="team-cards">
-          <div *ngFor="let employee of teamMembers">
-            <div class="card mb-1 team-card">
-              <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
+          <div id="empPersonalSkills" class="col-md-4" *ngFor="let skill of profile.userProfile.skills">
+            <div class="card mb-1">
               <div class="card-body">
-                <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
-                <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
+                <h5 class="card-title" id="empSkillName">{{skill}}</h5>
+                <!--                  <p class="card-text" id="empSkillDetail">{{skill.details}}</p>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <h4>Certifications</h4>
+        <div class="skill-cards">
+          <div *ngIf="(profile.userProfile.certifications).length==0">
+            <p class="error">This user has no certifications yet!</p>
+          </div>
+          <div id="empCertifications" class="col-md-4" *ngFor="let cert of profile.userProfile.certifications">
+            <div class="card mb-1">
+              <div class="card-body">
+                <h5 class="card-title" id="empCertName">{{cert}}</h5>
+                <!--                  <p class="card-text" id="empCertDetail">{{cert.details}}</p>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-team flex-row">
+        <h1 class="display-4">Team</h1>
+        <div *ngIf="profile.userProfile.team === null">
+          <p class="pr-3 error" id="teamViewError">Team has not been set!</p>
+        </div>
+        <div *ngIf="profile.userProfile.team !== null">
+          <p class="teamName"><b>Training Academy 2022 Dream Team</b></p>
+          <div class="team-cards">
+            <div *ngFor="let employee of teamMembers">
+              <div class="card mb-1 team-card">
+                <img class="card-img-top" id="teamEmpImg" src="{{employee.img}}" alt="Employee Profile Image">
+                <div class="card-body">
+                  <h5 class="card-title" id="teamEmpName">{{employee.name}}</h5>
+                  <p class="card-text" id="teamEmpJobTitle">{{employee.position}}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <app-skills-edit></app-skills-edit>
+    <app-edit-user-details></app-edit-user-details>
   </div>
-  <app-skills-edit></app-skills-edit>
-  <app-edit-user-details></app-edit-user-details>
 </div>
