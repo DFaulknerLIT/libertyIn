@@ -21,8 +21,11 @@ export class DiscoverService {
     return this.http.get('http://localhost:8080/api/v1/users')//url + '/api/v1/users')
   }
 
-  search(text: String){
-    return this.http.get('http://localhost:8080/api/v1/users' + '/' + text)
+  getUserAccountByTitle(title: string): Observable<any> {
+      let body = {
+        input: title
+      }
+      return this.http.put(url + '/api/v1/users/retrieve', body);
   }
 
 }
