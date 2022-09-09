@@ -21,6 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SkillsEditComponent } from './components/skills-edit/skills-edit.component';
 import { EditUserDetailsComponent } from './components/edit-user-details/edit-user-details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {RouterModule} from "@angular/router";
+import { CertsEditComponent } from './components/certs-edit/certs-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FooterComponent,
     SkillsEditComponent,
     EditUserDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CertsEditComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     {

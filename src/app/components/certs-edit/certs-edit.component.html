@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="modal fade col-md-6 col-lg-6 offset-3" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="skillsModalLabel" aria-hidden="true">
+  <div class="modal fade col-md-6 col-lg-6 offset-3" id="certsModal" tabindex="-1" role="dialog" aria-labelledby="certsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="skillsModalLabel">Editing Skills</h5>
+          <h5 class="modal-title" id="skillsModalLabel">Editing Certifications</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -20,33 +20,33 @@
             </div>
           </div>
           <div id="skillsTable">
-            <h3>Current Skills</h3>
+            <h3>Current Certifications</h3>
             <table class="table">
               <tr>
-                <th>Skill</th>
+                <th>Certification</th>
                 <th>Option</th>
               </tr>
-              <tr *ngFor="let skill of skills">
-                <td>{{skill.name}}</td>
-                <td><button class="btn btn-primary btn-half-center" (click)="onSkillDelete(skill.name)"> Delete Skill </button></td>
+              <tr *ngFor="let cert of certs">
+                <td>{{cert.name}}</td>
+                <td><button class="btn btn-primary btn-half-center" (click)="onCertDelete(cert.name)"> Delete Cert </button></td>
               </tr>
             </table>
           </div>
           <hr>
           <div id="skillsForm">
             <h3>Add a skill</h3>
-            <form [formGroup]="skillForm" (ngSubmit)="onSkillAdd()" class=“catalyst-form”>
+            <form [formGroup]="certForm" (ngSubmit)="onCertAdd()" class=“catalyst-form”>
               <div class="row">
                 <div class="col-12">
-                  <fieldset class="card p-lg-4 p-md-3 p-2" id="skillFormSection">
+                  <fieldset class="card p-lg-4 p-md-3 p-2" id="certFormSection">
 
                     <div class="fields">
                       <div class="pb-2">
                         <div class="col-lg-12 col-md-12">
                           <div class="form-group">
-                            <label for="skillField">Skill
-                              <input class="form-control" id="skillField" name="field-skill"
-                                     placeholder=" " type="text" formControlName="skill">
+                            <label for="certField">Certification
+                              <input class="form-control" id="certField" name="field-cert"
+                                     placeholder=" " type="text" formControlName="cert">
                             </label>
                           </div>
                         </div>
@@ -66,7 +66,7 @@
                       <div class="row">
                         <div class="col-md-12 col-lg-12">
                           <fieldset>
-                            <input class="btn btn-primary btn-half-center" data-testid="submit-button" type="submit" [disabled]="!skillForm.valid" value="Add Skill"/>
+                            <input class="btn btn-primary btn-half-center" data-testid="submit-button" type="submit" [disabled]="!certForm.valid" value="Add Cert"/>
                           </fieldset>
                         </div>
                       </div>

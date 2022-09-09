@@ -9,6 +9,8 @@
           </button>
         </div>
         <div class="modal-body">
+          <p>To edit a detail, please enter input below and submit. If you do not wish to update a field, leave it blank.</p>
+          <p>These fields may be edited at admin discretion.</p>
           <div class="text-center col-lg-12 col-md-12">
             <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class=“catalyst-form”>
               <div class="row">
@@ -30,8 +32,10 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="form-group">
                             <label for="teamNameField">Team
-                              <input class="form-control" id="teamNameField" name="field-teamName"
-                                     placeholder=" " type="text" formControlName="teamName">
+                              <select class="form-control" id="teamNameField" name="field-teamName" formControlName="teamName">
+                                <option value="none"></option>
+                                <option *ngFor="let team of teamsList" value="{{team.name}}">{{team.name}}</option>
+                              </select>
                             </label>
                           </div>
                         </div>
@@ -50,9 +54,6 @@
               </div>
             </form>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
