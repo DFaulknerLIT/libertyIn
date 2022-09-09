@@ -38,8 +38,11 @@ export class SkillsEditComponent implements OnInit {
     });
   }
 
-  onSkillDelete() {
-
+  onSkillDelete(skill: string) {
+    this.userService.removeSkillFromUser(skill).subscribe((res) => {
+      this.hasSuccess = true;
+      this.successMessage = "Skill deleted successfully";
+    });
   }
 
 }
