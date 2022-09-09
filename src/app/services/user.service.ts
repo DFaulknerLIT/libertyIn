@@ -29,4 +29,23 @@ export class UserService {
     return this.http.put(url + '/api/v1/account/job_title', {input:jobTitle});
   }
 
+  getListOfAllTeams(): Observable<any> {
+    return this.http.get(url + "api/v1/team/all");
+  }
+
+  createNewTeam(teamName: string): Observable<any> {
+    let body = {
+      input: teamName
+    };
+    return this.http.post(url + "/api/v1/team/create", body);
+  }
+
+  updateUserTeam(teamName: string, username: string): Observable<any> {
+    let body = {
+      team: teamName,
+      userEmail: username
+    };
+    return this.http.put(url + "api/v1/team/all", body);
+  }
+
 }
