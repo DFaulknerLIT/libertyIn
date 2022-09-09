@@ -108,4 +108,8 @@
     <app-skills-edit></app-skills-edit>
     <app-edit-user-details></app-edit-user-details>
   </div>
+
+  <div *ngIf="hasError">
+    <a class="btn btn-rounded btn-primary" href="/users/self">Return to your profile</a>
+  </div>
 </div>
